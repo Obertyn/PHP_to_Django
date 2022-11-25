@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bakery</title>
+</head>
+<body>
+	<h1>Online order</h1>
+	<form action="order" method = "post">
+
+		How many buns (0.99 PLN/szt):
+		{% csrf_token %}
+		<input type="text" name="buns" class="form-control" value="{{ current_buns }}"/>
+
+		<br /><br />
+
+		How many donuts (1.29 PLN/szt):
+		{% csrf_token %}
+		<input type="text" name="donuts" class="form-control" value="{{ current_donuts }}"/>
+
+		<br /><br />
+
+		<a href="order">
+		<input type="submit" value="Send the order" />
+	</form>
+
+<!--
+<input type="submit" value="Wyślij zamówienie" />
+<a href="order">
+		<input type="submit" value="Send the order" />
+-->
+</body>
+</html>

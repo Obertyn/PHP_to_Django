@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Settlers - create a free account!</title>
+</head>
+
+<body>
+
+	<form action="registrationtogame" method="post">
+		{% csrf_token %}
+		Nickname: <br /> <input type="text" name="nick" /><br />
+		{% csrf_token %}
+		E-mail: <br /> <input type="text" name="email" /><br />
+		{% csrf_token %}
+		Your password: <br /> <input type="password" name="password1" /><br />
+		{% csrf_token %}
+		Repeat password: <br /> <input type="password" name="password2" /><br />
+
+		<label>
+			<input type="checkbox" name="regulamin" /> I accept the terms and conditions
+		</label>
+		<br />
+		{{captcha}}
+		<br />
+		<input type="submit" value="Register" />
+		<br />
+		<span style="color: red">{{request.session.errorregistration}}</span>
+	</form>
+	<br />
+	<a href="/">Go back to the login page</a>
+</body>
+</html>
+
